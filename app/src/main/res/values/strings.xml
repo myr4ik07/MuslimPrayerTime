@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">PrayerTime</string>
+    <string name="current_time">current time</string>
+    <string name="next_prayer">next prayer</string>
+    <string name="current_site">current site</string>
+    <string name="pay_attention">Время намаза указано приблизительно</string>
+    <string name="image_1">Logo</string>
+    <string name="textclock">2021-01-01 / 16:57</string>
+    <string name="Субх">Субх</string>
+    <string name="Восход">Восход</string>
+    <string name="Зуhр">Зуhр</string>
+    <string name="Аср">Аср</string>
+    <string name="Магриб">Магриб</string>
+    <string name="Иша">Иша</string>
+    <string name="calendar_prayers"><u>Календарь Намазов на (2021г./1442-1443h.)
+        для городов Украины</u></string>
+    <string name="IMAGE">IMEGA_LOGO</string>
+    <string name="_07_38">07:38</string>
+    <string name="_05_59">05:59</string>
+    <string name="_12_00">12:00</string>
+    <string name="_13_58">13:58</string>
+    <string name="_16_12">16:12</string>
+    <string name="_17_44">17:44</string>
+</resources>
