@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -17,7 +18,8 @@
             android:text="@string/textclock"
             android:textAlignment="center"
             android:textSize="70sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            tools:targetApi="jelly_bean_mr1" />
 
         <Spinner
             android:id="@+id/city_choice"

@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,39 +12,47 @@
             android:id="@+id/current_time"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
             android:layout_marginTop="20dp"
             android:format24Hour="yyyy-MM-dd / HH:mm"
             android:text="@string/textclock"
             android:textAlignment="center"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="70sp"
+            android:textStyle="bold"/>
 
         <Spinner
             android:id="@+id/city_choice"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/current_time" />
+            android:layout_height="40dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/current_time"
+            android:layout_marginRight="100dp" />
 
         <TableLayout
             android:id="@+id/table_of_prayers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/city_choice">
+            android:layout_below="@+id/city_choice"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="100dp">
 
             <TableRow
                 android:id="@+id/first_prayer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="171dp"
                 android:gravity="center_horizontal">
 
-                <TableRow android:layout_width="150dp">
+                <TableRow android:layout_width="400dp">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/Субх"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -52,10 +60,11 @@
 
                     <TextView
                         android:id="@+id/first_prayer_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/_05_59"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -64,16 +73,17 @@
             <TableRow
                 android:id="@+id/sunrise"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="171dp"
                 android:gravity="center_horizontal">
 
-                <TableRow android:layout_width="150dp">
+                <TableRow android:layout_width="400dp">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/Восход"
-                        android:textSize="12sp"
+                        android:textSize="60sp"
                         android:textStyle="bold" />
 
                 </TableRow>
@@ -82,10 +92,11 @@
 
                     <TextView
                         android:id="@+id/sunrise_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/_07_38"
-                        android:textSize="12sp"
+                        android:textSize="60sp"
                         android:textStyle="bold" />
 
                 </TableRow>
@@ -95,16 +106,17 @@
             <TableRow
                 android:id="@+id/third_prayer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="171dp"
                 android:gravity="center_horizontal">
 
-                <TableRow android:layout_width="150dp">
+                <TableRow android:layout_width="400dp">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/Зуhр"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -112,10 +124,11 @@
 
                     <TextView
                         android:id="@+id/third_prayer_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/_12_00"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -124,16 +137,17 @@
             <TableRow
                 android:id="@+id/fourth_prayer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="171dp"
                 android:gravity="center_horizontal">
 
-                <TableRow android:layout_width="150dp">
+                <TableRow android:layout_width="400dp">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/Аср"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -141,10 +155,11 @@
 
                     <TextView
                         android:id="@+id/fourth_prayer_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/_13_58"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -153,16 +168,17 @@
             <TableRow
                 android:id="@+id/fifth_prayer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="171dp"
                 android:gravity="center_horizontal">
 
-                <TableRow android:layout_width="150dp">
+                <TableRow android:layout_width="400dp">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/Магриб"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -170,10 +186,11 @@
 
                     <TextView
                         android:id="@+id/fifth_prayer_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/_16_12"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -182,16 +199,17 @@
             <TableRow
                 android:id="@+id/second_prayer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="171dp"
                 android:gravity="center_horizontal">
 
-                <TableRow android:layout_width="150dp">
+                <TableRow android:layout_width="400dp">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/Иша"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -199,10 +217,11 @@
 
                     <TextView
                         android:id="@+id/second_prayer_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="@string/_17_44"
-                        android:textSize="12sp" />
+                        android:textSize="60sp" />
 
                 </TableRow>
 
@@ -213,46 +232,47 @@
         <TextView
             android:id="@+id/pay_attention"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/table_of_prayers"
+            android:layout_marginTop="5dp"
             android:text="@string/pay_attention"
             android:textAlignment="center"
+            android:textSize="30sp"
             android:textColor="@color/design_default_color_error"
-            android:textSize="12sp"
             android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/current_site"
-            android:layout_marginTop="0dp"
-            android:contentDescription="@string/IMAGE"
-            app:srcCompat="@drawable/image_1" />
 
         <TextView
             android:id="@+id/calendar_prayers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/pay_attention"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:onClick="prayer_calendar_onClick"
             android:text="@string/calendar_prayers"
             android:textAlignment="center"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="12sp" />
+            android:textSize="30sp"
+            android:textColor="@android:color/holo_blue_dark" />
 
         <TextView
             android:id="@+id/current_site"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/calendar_prayers"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="20dp"
             android:onClick="current_site_onClick"
             android:text="@string/current_site"
             android:textAlignment="center"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="12sp" />
+            android:textSize="30sp"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            app:srcCompat="@drawable/image_1"
+            android:layout_below="@+id/current_site"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/IMAGE" />
 
     </RelativeLayout>
 

@@ -11,6 +11,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -228,12 +230,12 @@ public class MainActivity extends AppCompatActivity {
             kiev kiev = new kiev();
             String[] list_time_prayer = kiev.get_time_prayer(current_month, current_day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -247,12 +249,12 @@ public class MainActivity extends AppCompatActivity {
             harkov harkov = new harkov();
             String[] list_time_prayer = harkov.get_time_prayer(current_month, current_day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -266,12 +268,12 @@ public class MainActivity extends AppCompatActivity {
             poltava poltava = new poltava();
             String[] list_time_prayer = poltava.get_time_prayer(current_month, current_day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -285,12 +287,12 @@ public class MainActivity extends AppCompatActivity {
             donezk donezk = new donezk();
             String[] list_time_prayer = donezk.get_time_prayer(current_month, current_day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -304,12 +306,12 @@ public class MainActivity extends AppCompatActivity {
             zaporojye zaporojye = new zaporojye();
             String[] list_time_prayer = zaporojye.get_time_prayer(current_month, current_day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -323,12 +325,12 @@ public class MainActivity extends AppCompatActivity {
             nikolaev nikolaev = new nikolaev();
             String[] list_time_prayer = nikolaev.get_time_prayer(current_month, current_day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -342,12 +344,12 @@ public class MainActivity extends AppCompatActivity {
             odessa odessa = new odessa();
             String[] list_time_prayer = odessa.get_time_prayer(current_month, current_day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -361,12 +363,12 @@ public class MainActivity extends AppCompatActivity {
             cherkassy cherkassy = new cherkassy();
             String[] list_time_prayer = cherkassy.get_time_prayer(current_month, current_day, February_29_Day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -380,12 +382,12 @@ public class MainActivity extends AppCompatActivity {
             lvov lvov = new lvov();
             String[] list_time_prayer = lvov.get_time_prayer(current_month, current_day);
             if (list_time_prayer.length == 6) {
-                first_prayer_time.setText(list_time_prayer[0]);
-                sunrise_time.setText(list_time_prayer[1]);
-                third_prayer_time.setText(list_time_prayer[2]);
-                fourth_prayer_time.setText(list_time_prayer[3]);
-                fifth_prayer_time.setText(list_time_prayer[4]);
-                second_prayer_time.setText(list_time_prayer[5]);
+                first_prayer_time.setText(calculate_conversion(list_time_prayer[0]));
+                sunrise_time.setText(calculate_conversion(list_time_prayer[1]));
+                third_prayer_time.setText(calculate_conversion(list_time_prayer[2]));
+                fourth_prayer_time.setText(calculate_conversion(list_time_prayer[3]));
+                fifth_prayer_time.setText(calculate_conversion(list_time_prayer[4]));
+                second_prayer_time.setText(calculate_conversion(list_time_prayer[5]));
             } else {
                 //no time found
                 first_prayer_time.setText(empty_time);
@@ -405,6 +407,145 @@ public class MainActivity extends AppCompatActivity {
             second_prayer_time.setText(empty_time);
         }
 
+    }
+
+    String calculate_conversion(String currentTime) {
+        return currentTime;
+//        String March = "03";
+//        String October = "10";
+
+        //get format data
+//        Date thisDate = new Date(new Date().getTime());
+//        Date thisDate = new GregorianCalendar(2021, Calendar.MARCH, 28, 4, 00, 00).getTime();
+//        Date thisDate = new GregorianCalendar(2021, Calendar.OCTOBER, 31, 5, 00, 00).getTime();
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String dayOfTheWeek = (String) DateFormat.format("EEEE", date); // Thursday
+//        String monthString = (String) DateFormat.format("MMM", date); // Jun
+//        String thisDay = (String) DateFormat.format("dd", thisDate); // 20
+//        String thisMonth = (String) DateFormat.format("MM", thisDate); // 06
+//        String thisYear = (String) DateFormat.format("yyyy", thisDate); // 2013
+//        String thisHours = (String) DateFormat.format("HH", thisDate); // Hours
+
+        //conversion
+//        Integer year_int = new Integer(thisYear);
+//        Integer monthNumber_int = new Integer(thisMonth);
+//        Integer hours_int = new Integer(thisHours);
+//        Integer param_hours_in = new Integer(paramHours);
+//        Integer param_minutes_int = new Integer(paramMinutes);
+
+        //get clock shift day
+//        Date lastSunday = getLastSunday(monthNumber_int, year_int);
+//        String dayClockShift = (String) DateFormat.format("dd", lastSunday); // 20
+
+//        Date startDate = getLastSunday(3, year_int);
+//        Date endDate = getLastSunday(10, year_int);
+//        String startDayClockShift = (String) DateFormat.format("dd", startDate); // 20
+//        String endDayClockShift = (String) DateFormat.format("dd", endDate); // 20
+
+//        Calendar cal1 = Calendar.getInstance();
+//        Calendar cal2 = Calendar.getInstance();
+//        Calendar cal3 = Calendar.getInstance();
+//        cal1.setTime(startDate);
+//        cal2.setTime(endDate);
+//        cal3.setTime(thisDate);
+
+//        String conversionPrayerTime = currentTime;
+//        Integer Hours = 4;
+//        int startMonth = 3; //March
+//        int endMonth = 10; //October
+//        Date thisDate = new Date(new Date().getTime());
+//
+//        String paramHours = currentTime.substring(0, 2);
+//        String paramMinutes = currentTime.substring(3);
+//
+//        String thisMonth = (String) DateFormat.format("MM", thisDate); // 06
+//        String thisHours = (String) DateFormat.format("HH", thisDate); // Hours
+//        String thisYear = (String) DateFormat.format("yyyy", thisDate); // 2013
+//        String thisDay = (String) DateFormat.format("dd", thisDate); // 20
+//
+//        Integer year_int = new Integer(thisYear);
+//        Integer monthNumber_int = new Integer(thisMonth);
+//        Integer hours_int = new Integer(thisHours);
+//        Integer param_hours_in = new Integer(paramHours);
+//        Integer thisDay_int = new Integer(thisDay);
+//
+//        Date lastSunday = getLastSunday(monthNumber_int, year_int);
+//
+//        //get clock shift day
+//        String dayClockShift = (String) DateFormat.format("dd", lastSunday); // 20
+//        Integer startDayClockShift = new Integer(dayClockShift);
+//
+//        if (monthNumber_int >= startMonth & monthNumber_int <= endMonth) {
+//            //March, April, May, June, July, August, September, October
+//            if (thisDay_int >= startDayClockShift) {
+//                //March
+//                if (hours_int >= Hours) { //shift clock
+//                    conversionPrayerTime = conversionPrayerTime(param_hours_in, paramMinutes);
+//                }
+//            } else if (monthNumber_int == endMonth) {
+//                //October
+//                //without changes
+//            } else {
+//
+//                if (monthNumber_int == startMonth & thisDay_int < startDayClockShift) {
+//                    //The current date is no more than the date when the clock needs to be translated
+//                    //without changes
+//                } else {
+//                    //Other month
+//                    conversionPrayerTime = conversionPrayerTime(param_hours_in, paramMinutes);
+//                }
+//            }
+//        }
+
+//        if (thisMonth.equals(March)) { //March
+//            if (thisDay.equals(dayClockShift)) { //day of time change
+//                if (hours_int >= Hours) { //shift clock
+        //conversion data time prayer
+//        Integer conversionData = param_hours_in + 1;
+//        String conversionHour = new Integer(conversionData).toString();
+//        if (conversionData < 12) {
+//            conversionHour = "0" + conversionData;
+//        }
+//        conversionPrayerTime = conversionHour + ":" + paramMinutes;
+//                }
+//            }
+//
+//        } else if (thisMonth.equals(October)) { //October
+//            if (thisDay.equals(dayClockShift)) { //day of time change
+//                if (hours_int >= Hours) { //shift clock
+//                    //conversion data time prayer
+//                    //without changes
+//                    conversionPrayerTime = currentTime;
+////                    String conversionHour =  "0" + new Integer(param_hours_in - 1).toString();
+////                    conversionPrayerTime = conversionHour + ":" + paramMinutes;
+//                }
+//            }
+//        }
+
+
+//        return conversionPrayerTime;
+    }
+
+    //Get the last Sunday of the month
+    private Date getLastSunday(int month, int year) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, month, 1);
+        cal.add(Calendar.DATE, -1);
+        cal.add(Calendar.DAY_OF_MONTH, -(cal.get(Calendar.DAY_OF_WEEK) - 1));
+        return cal.getTime();
+    }
+
+    private String conversionPrayerTime(int param_hours_in, String paramMinutes) {
+        String conversionPrayerTime;
+
+        Integer conversionData = param_hours_in + 1;
+        String conversionHour = new Integer(conversionData).toString();
+        if (conversionData < 12) {
+            conversionHour = "0" + conversionData;
+        }
+        conversionPrayerTime = conversionHour + ":" + paramMinutes;
+
+        return conversionPrayerTime;
     }
 
 }

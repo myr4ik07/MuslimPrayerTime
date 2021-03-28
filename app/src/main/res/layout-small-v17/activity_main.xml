@@ -221,21 +221,11 @@
             android:textSize="12sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/current_site"
-            android:layout_marginTop="0dp"
-            android:contentDescription="@string/IMAGE"
-            app:srcCompat="@drawable/image_1" />
-
         <TextView
             android:id="@+id/calendar_prayers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/pay_attention"
-            android:layout_marginTop="40dp"
             android:onClick="prayer_calendar_onClick"
             android:text="@string/calendar_prayers"
             android:textAlignment="center"
@@ -247,12 +237,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/calendar_prayers"
-            android:layout_marginTop="0dp"
             android:onClick="current_site_onClick"
             android:text="@string/current_site"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/current_site"
+            android:contentDescription="@string/IMAGE"
+            app:srcCompat="@drawable/image_1" />
 
     </RelativeLayout>
 
