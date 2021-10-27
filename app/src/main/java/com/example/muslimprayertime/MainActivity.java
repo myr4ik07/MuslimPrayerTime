@@ -1,6 +1,7 @@
 package com.example.muslimprayertime;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -20,6 +21,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -68,10 +70,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //rotation lock
+        //відключити темну тему, навіть якщо вона активна на рівні системи
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        //відключити орієнтацію екрана
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
-        //fill array list
+        //заповнюємо масиви
         site_list = get_site_list();
         list_class_city = get_Class_city();
 
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        //setting
+        //робота з збереженими налаштуваннями на рівні системи
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         if (mSettings.contains(APP_PREFERENCES_CURRENT_CITY)) {
             current_city = mSettings.getString(APP_PREFERENCES_CURRENT_CITY, current_city);
@@ -140,34 +145,6 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    Map get_site_list() {
-        Map<String, String> site_list = new HashMap<String, String>();
-        site_list.put(Kiev, "islam.ua");
-        site_list.put(Zaporozhye, "zp.islam.ua");
-        site_list.put(Nikolaev, "islamnik.com");
-        site_list.put(Odessa, "odessa.islam.ua");
-        site_list.put(Poltava, "islampoltava.org");
-        site_list.put(Kharkiv, "islamkharkov.org");
-        site_list.put(Kherson, "islam.kherson.ua");
-        site_list.put(Khmelnitsky, "khmelnizk.islam.ua");
-        site_list.put(Cherkasy, "cherkassy.islam.ua");
-        return site_list;
-    }
-
-    Map get_Class_city() {
-        Map<String, String> name_class_city = new HashMap<String, String>();
-        name_class_city.put(Kiev, "kiev");
-        name_class_city.put(Zaporozhye, "zaporojye");
-        name_class_city.put(Nikolaev, "nikolaev");
-        name_class_city.put(Odessa, "odessa");
-        name_class_city.put(Poltava, "poltava");
-        name_class_city.put(Kharkiv, "harkov");
-        name_class_city.put(Donetsk, "donezk");
-        name_class_city.put(Lviv, "lvov");
-        name_class_city.put(Cherkasy, "cherkassi");
-        return name_class_city;
-    }
-
     //set city view
     void set_City() {
         TextView current_site_list = findViewById(R.id.current_site);
@@ -195,6 +172,34 @@ public class MainActivity extends AppCompatActivity {
                 Melitopol, Nikolaev, Kherson, Kropyvnytsky, Khmelnitsky,
                 Odessa, Cherkasy, Lviv, Kremenchuk};
         return city_list;
+    }
+
+    Map get_site_list() {
+        Map<String, String> site_list = new HashMap<String, String>();
+        site_list.put(Kiev, "islam.ua");
+        site_list.put(Zaporozhye, "zp.islam.ua");
+        site_list.put(Nikolaev, "islamnik.com");
+        site_list.put(Odessa, "odessa.islam.ua");
+        site_list.put(Poltava, "islampoltava.org");
+        site_list.put(Kharkiv, "islamkharkov.org");
+        site_list.put(Kherson, "islam.kherson.ua");
+        site_list.put(Khmelnitsky, "khmelnizk.islam.ua");
+        site_list.put(Cherkasy, "cherkassy.islam.ua");
+        return site_list;
+    }
+
+    Map get_Class_city() {
+        Map<String, String> name_class_city = new HashMap<String, String>();
+        name_class_city.put(Kiev, "kiev");
+        name_class_city.put(Zaporozhye, "zaporojye");
+        name_class_city.put(Nikolaev, "nikolaev");
+        name_class_city.put(Odessa, "odessa");
+        name_class_city.put(Poltava, "poltava");
+        name_class_city.put(Kharkiv, "harkov");
+        name_class_city.put(Donetsk, "donezk");
+        name_class_city.put(Lviv, "lvov");
+        name_class_city.put(Cherkasy, "cherkassi");
+        return name_class_city;
     }
 
     void fill_table_prayer() {
@@ -410,142 +415,69 @@ public class MainActivity extends AppCompatActivity {
     }
 
     String calculate_conversion(String currentTime) {
-        return currentTime;
-//        String March = "03";
-//        String October = "10";
 
-        //get format data
-//        Date thisDate = new Date(new Date().getTime());
-//        Date thisDate = new GregorianCalendar(2021, Calendar.MARCH, 28, 4, 00, 00).getTime();
-//        Date thisDate = new GregorianCalendar(2021, Calendar.OCTOBER, 31, 5, 00, 00).getTime();
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        String dayOfTheWeek = (String) DateFormat.format("EEEE", date); // Thursday
-//        String monthString = (String) DateFormat.format("MMM", date); // Jun
-//        String thisDay = (String) DateFormat.format("dd", thisDate); // 20
-//        String thisMonth = (String) DateFormat.format("MM", thisDate); // 06
-//        String thisYear = (String) DateFormat.format("yyyy", thisDate); // 2013
-//        String thisHours = (String) DateFormat.format("HH", thisDate); // Hours
+        //обробляємо ситуацію, коли відбувається перевод годинників в БЕРЕЗНІ та ЖОВТНІ
 
-        //conversion
-//        Integer year_int = new Integer(thisYear);
-//        Integer monthNumber_int = new Integer(thisMonth);
-//        Integer hours_int = new Integer(thisHours);
-//        Integer param_hours_in = new Integer(paramHours);
-//        Integer param_minutes_int = new Integer(paramMinutes);
+        Integer int_thisDay = 0;
+        Integer int_hour = 0;
+        Integer int_thisMonth = 0;
 
-        //get clock shift day
-//        Date lastSunday = getLastSunday(monthNumber_int, year_int);
-//        String dayClockShift = (String) DateFormat.format("dd", lastSunday); // 20
+        Calendar calendar = new GregorianCalendar();
+        int current_day = calendar.get(Calendar.DATE);
 
-//        Date startDate = getLastSunday(3, year_int);
-//        Date endDate = getLastSunday(10, year_int);
-//        String startDayClockShift = (String) DateFormat.format("dd", startDate); // 20
-//        String endDayClockShift = (String) DateFormat.format("dd", endDate); // 20
+        int March = 03; //номер місяця БЕРЕЗЕНЬ
+        int October = 10; //номер місяця ЖОВТЕНЬ
+        Date thisDate = new Date(new Date().getTime());
+        String thisMonth = (String) DateFormat.format("MM", thisDate); // поточний місяць
+        String thisDay = (String) DateFormat.format("dd", thisDate); // поточний день
 
-//        Calendar cal1 = Calendar.getInstance();
-//        Calendar cal2 = Calendar.getInstance();
-//        Calendar cal3 = Calendar.getInstance();
-//        cal1.setTime(startDate);
-//        cal2.setTime(endDate);
-//        cal3.setTime(thisDate);
+        int int_lastSundayMonth = getlastSundayMonth(); //остання неділя місяця (ЖОВТЕНЬ)
 
-//        String conversionPrayerTime = currentTime;
-//        Integer Hours = 4;
-//        int startMonth = 3; //March
-//        int endMonth = 10; //October
-//        Date thisDate = new Date(new Date().getTime());
-//
-//        String paramHours = currentTime.substring(0, 2);
-//        String paramMinutes = currentTime.substring(3);
-//
-//        String thisMonth = (String) DateFormat.format("MM", thisDate); // 06
-//        String thisHours = (String) DateFormat.format("HH", thisDate); // Hours
-//        String thisYear = (String) DateFormat.format("yyyy", thisDate); // 2013
-//        String thisDay = (String) DateFormat.format("dd", thisDate); // 20
-//
-//        Integer year_int = new Integer(thisYear);
-//        Integer monthNumber_int = new Integer(thisMonth);
-//        Integer hours_int = new Integer(thisHours);
-//        Integer param_hours_in = new Integer(paramHours);
-//        Integer thisDay_int = new Integer(thisDay);
-//
-//        Date lastSunday = getLastSunday(monthNumber_int, year_int);
-//
-//        //get clock shift day
-//        String dayClockShift = (String) DateFormat.format("dd", lastSunday); // 20
-//        Integer startDayClockShift = new Integer(dayClockShift);
-//
-//        if (monthNumber_int >= startMonth & monthNumber_int <= endMonth) {
-//            //March, April, May, June, July, August, September, October
-//            if (thisDay_int >= startDayClockShift) {
-//                //March
-//                if (hours_int >= Hours) { //shift clock
-//                    conversionPrayerTime = conversionPrayerTime(param_hours_in, paramMinutes);
-//                }
-//            } else if (monthNumber_int == endMonth) {
-//                //October
-//                //without changes
-//            } else {
-//
-//                if (monthNumber_int == startMonth & thisDay_int < startDayClockShift) {
-//                    //The current date is no more than the date when the clock needs to be translated
-//                    //without changes
-//                } else {
-//                    //Other month
-//                    conversionPrayerTime = conversionPrayerTime(param_hours_in, paramMinutes);
-//                }
-//            }
-//        }
+        try {
 
-//        if (thisMonth.equals(March)) { //March
-//            if (thisDay.equals(dayClockShift)) { //day of time change
-//                if (hours_int >= Hours) { //shift clock
-        //conversion data time prayer
-//        Integer conversionData = param_hours_in + 1;
-//        String conversionHour = new Integer(conversionData).toString();
-//        if (conversionData < 12) {
-//            conversionHour = "0" + conversionData;
-//        }
-//        conversionPrayerTime = conversionHour + ":" + paramMinutes;
-//                }
-//            }
-//
-//        } else if (thisMonth.equals(October)) { //October
-//            if (thisDay.equals(dayClockShift)) { //day of time change
-//                if (hours_int >= Hours) { //shift clock
-//                    //conversion data time prayer
-//                    //without changes
-//                    conversionPrayerTime = currentTime;
-////                    String conversionHour =  "0" + new Integer(param_hours_in - 1).toString();
-////                    conversionPrayerTime = conversionHour + ":" + paramMinutes;
-//                }
-//            }
-//        }
+            int_thisDay = new Integer(thisDay);
+            int_thisMonth = new Integer(thisMonth);
 
-
-//        return conversionPrayerTime;
-    }
-
-    //Get the last Sunday of the month
-    private Date getLastSunday(int month, int year) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(year, month, 1);
-        cal.add(Calendar.DATE, -1);
-        cal.add(Calendar.DAY_OF_MONTH, -(cal.get(Calendar.DAY_OF_WEEK) - 1));
-        return cal.getTime();
-    }
-
-    private String conversionPrayerTime(int param_hours_in, String paramMinutes) {
-        String conversionPrayerTime;
-
-        Integer conversionData = param_hours_in + 1;
-        String conversionHour = new Integer(conversionData).toString();
-        if (conversionData < 12) {
-            conversionHour = "0" + conversionData;
+            if (int_thisMonth == October) { //якщо поточний місяць ЖОВТЕНЬ
+                int_hour = new Integer(currentTime.substring(0, 2)) + 1;
+                if (current_day > 24 && current_day < int_lastSundayMonth) { //попали на день в якому на 27.10.2019 в файлі годин намазів стоїть значення
+                    //з урахуванням переводу годинників
+                    if (int_thisDay < int_lastSundayMonth) {//якщо сьогоднішній день МЕНШЕ за останню неділю жовтня
+                        if (int_hour < 10) {
+                            return "0" + int_hour + currentTime.substring(2, 5); //добавляємо +1 годину, так як в поточному році 27 число НЕ є день
+                            //коли потрібно переводити годинники
+                        } else { //маємо час 11, 12, 13 і т.д.
+                            return int_hour + currentTime.substring(2, 5); //добавляємо +1 годину, так як в поточному році 27 число НЕ є день
+                            //коли потрібно переводити годинники
+                        }
+                    }
+                }
+            } else if (int_thisMonth == March) {
+                int_hour = new Integer(currentTime.substring(0, 2)) - 1;
+                if (current_day > 28 && current_day < int_lastSundayMonth) {//попали на день в якому на 31.03.2019 в файлі годин намазів стоїть значення
+                    //з урахуванням переводу годинників
+                    if (int_thisDay < int_lastSundayMonth) {//якщо сьогоднішній день МЕНЬШЕ за останню неділю жовтня
+                        return "0" + int_hour + currentTime.substring(2, 5); //віднімаємо -1 годину, так як в поточному році 31 число НЕ є день
+                        //коли потрібно переводити годинники
+                    }
+                }
+            }
+        } catch (NumberFormatException e) {
+            System.err.println("Помилка визначення останньої неділі жовтня!");
         }
-        conversionPrayerTime = conversionHour + ":" + paramMinutes;
+        return currentTime; //не потрібні урахування переводу годинників
+    }
 
-        return conversionPrayerTime;
+    private int getlastSundayMonth() {
+        Date date = new Date(new Date().getTime());
+        int lastDayMounth = Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
+        return lastDayMounth;
+    }
+
+    public static int getDayNumberOld(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.DAY_OF_WEEK);
     }
 
 }
