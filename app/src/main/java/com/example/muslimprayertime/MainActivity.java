@@ -484,18 +484,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
-//                if ( current_day < 28 && current_day <= int_lastSundayMonth ) {//попали на день в якому на 31.03.2019 в файлі годин намазів стоїть значення
-                    //з урахуванням переводу годинників
-//                    if (int_thisDay <= int_lastSundayMonth) {//якщо сьогоднішній день МЕНЬШЕ за останню неділю березня
-//                        if ( int_hour < 10) {
-//                            return "0" + int_hour + currentTime.substring(2, 5);
-//                        } else {
-//                            return "" + int_hour + currentTime.substring(2, 5);
-//                        }
-//                         //добавляємо +1 годину, так як в поточному році 31 число НЕ є день
-                        //коли потрібно переводити годинники
-//                    }
-//                }
             }
         } catch (NumberFormatException e) {
             System.err.println("Помилка визначення останньої неділі жовтня!");
