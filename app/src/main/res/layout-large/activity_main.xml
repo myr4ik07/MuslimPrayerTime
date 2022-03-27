@@ -245,7 +245,6 @@
             android:layout_below="@+id/pay_attention"
             android:layout_marginTop="100dp"
             android:onClick="prayer_calendar_onClick"
-            android:text="@string/calendar_prayers"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="20sp" />
@@ -256,18 +255,9 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/calendar_prayers"
             android:onClick="current_site_onClick"
-            android:text="@string/current_site"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="20sp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/current_site"
-            android:contentDescription="@string/IMAGE"
-            app:srcCompat="@drawable/image_1" />
 
     </RelativeLayout>
 

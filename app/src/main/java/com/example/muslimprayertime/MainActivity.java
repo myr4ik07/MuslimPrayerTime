@@ -3,8 +3,6 @@ package com.example.muslimprayertime;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,9 +17,6 @@ import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -65,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
     Map site_list;
     Map list_class_city;
 
+    int current_Year = Calendar.getInstance().get(Calendar.YEAR);
+    int current_Year_h_start = 0;
+    int current_Year_h_end = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,8 +97,10 @@ public class MainActivity extends AppCompatActivity {
             set_City_List(spinner);
             //set city view
             set_City();
-
         }
+
+        //set text calendar
+        setTextCalendar();
 
         //select spinner
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
@@ -133,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
     //click URL calendar
     public void prayer_calendar_onClick(View v) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://islam.ua/kalendar-namazov-2021g-1442-1443h-dlya-gorodov-ukrainy/"));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://islam.ua/ru/biblioteka/kalendar-namazov"));
         startActivity(browserIntent);
     }
 
@@ -163,6 +164,26 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter arrayAdapter = (ArrayAdapter) spinner.getAdapter();
         int position = arrayAdapter.getPosition(current_city);
         spinner.setSelection(position);
+    }
+
+    //set text calendar
+    void setTextCalendar() {
+        getValueYear();
+
+        TextView calendar_prayers = findViewById(R.id.calendar_prayers);
+        calendar_prayers.setPaintFlags(0);
+        calendar_prayers.setPaintFlags(calendar_prayers.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        String textCalendar = "Календарь Намазов на ("+current_Year+"г./"+current_Year_h_start+"-"+current_Year_h_end+"h. для городов Украины)";
+        calendar_prayers.setText(textCalendar);
+    }
+
+    void getValueYear() {
+        int startYear = 2022;
+        int startYear_h = 1443;
+        int resultYear = this.current_Year - startYear;
+        this.current_Year_h_start = startYear_h + resultYear;
+        this.current_Year_h_end = this.current_Year_h_start + 1;
     }
 
     //fill list city
@@ -453,14 +474,28 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             } else if (int_thisMonth == March) {
-                int_hour = new Integer(currentTime.substring(0, 2)) - 1;
-                if (current_day > 28 && current_day < int_lastSundayMonth) {//попали на день в якому на 31.03.2019 в файлі годин намазів стоїть значення
-                    //з урахуванням переводу годинників
-                    if (int_thisDay < int_lastSundayMonth) {//якщо сьогоднішній день МЕНЬШЕ за останню неділю жовтня
-                        return "0" + int_hour + currentTime.substring(2, 5); //віднімаємо -1 годину, так як в поточному році 31 число НЕ є день
-                        //коли потрібно переводити годинники
+                int_hour = new Integer(currentTime.substring(0, 2)) + 1;
+                if (current_day < 28) {
+                    if (current_day >= int_lastSundayMonth) {
+                        if ( int_hour < 10) {
+                            return "0" + int_hour + currentTime.substring(2, 5);
+                        } else {
+                            return "" + int_hour + currentTime.substring(2, 5);
+                        }
                     }
                 }
+//                if ( current_day < 28 && current_day <= int_lastSundayMonth ) {//попали на день в якому на 31.03.2019 в файлі годин намазів стоїть значення
+                    //з урахуванням переводу годинників
+//                    if (int_thisDay <= int_lastSundayMonth) {//якщо сьогоднішній день МЕНЬШЕ за останню неділю березня
+//                        if ( int_hour < 10) {
+//                            return "0" + int_hour + currentTime.substring(2, 5);
+//                        } else {
+//                            return "" + int_hour + currentTime.substring(2, 5);
+//                        }
+//                         //добавляємо +1 годину, так як в поточному році 31 число НЕ є день
+                        //коли потрібно переводити годинники
+//                    }
+//                }
             }
         } catch (NumberFormatException e) {
             System.err.println("Помилка визначення останньої неділі жовтня!");
@@ -468,16 +503,34 @@ public class MainActivity extends AppCompatActivity {
         return currentTime; //не потрібні урахування переводу годинників
     }
 
-    private int getlastSundayMonth() {
+    int getlastSundayMonth() {
         Date date = new Date(new Date().getTime());
-        int lastDayMounth = Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
+        int lastDayMounth = getDayNumberOld(date);
         return lastDayMounth;
     }
 
-    public static int getDayNumberOld(Date date) {
+    int getDayNumberOld(Date date) {
+
+        int thisYear = Calendar.getInstance().get(Calendar.YEAR);
+        int thisMonth = Calendar.getInstance().get(Calendar.MONTH);
         Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        return cal.get(Calendar.DAY_OF_WEEK);
+
+        cal.set( thisYear, thisMonth + 1, 1 );
+        cal.add(Calendar.DATE, -1);
+        cal.add( Calendar.DAY_OF_MONTH, -( cal.get( Calendar.DAY_OF_WEEK ) - 1 ) );
+        Date dateOldNumber = cal.getTime();
+        String dayNumberOld = (String) DateFormat.format("dd", dateOldNumber); // поточний день
+
+        int int_dayNumberOld = 0;
+
+        try {
+            int_dayNumberOld = new Integer(dayNumberOld);
+        } catch (NumberFormatException e) {
+            System.err.println("Помилка визначення останньої неділі жовтня!");
+        }
+
+        return int_dayNumberOld;
+
     }
 
 }

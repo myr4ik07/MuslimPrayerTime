@@ -1,8 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,6 +16,7 @@
             android:format24Hour="yyyy-MM-dd / HH:mm"
             android:text="@string/textclock"
             android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
             android:textSize="70sp"
             android:textStyle="bold"
             tools:targetApi="jelly_bean_mr1" />
@@ -239,6 +239,7 @@
             android:layout_marginTop="5dp"
             android:text="@string/pay_attention"
             android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
             android:textSize="30sp"
             android:textColor="@color/design_default_color_error"
             android:textStyle="bold" />
@@ -250,8 +251,8 @@
             android:layout_below="@+id/pay_attention"
             android:layout_marginTop="30dp"
             android:onClick="prayer_calendar_onClick"
-            android:text="@string/calendar_prayers"
             android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
             android:textSize="30sp"
             android:textColor="@android:color/holo_blue_dark" />
 
@@ -262,19 +263,10 @@
             android:layout_below="@+id/calendar_prayers"
             android:layout_marginTop="20dp"
             android:onClick="current_site_onClick"
-            android:text="@string/current_site"
             android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
             android:textSize="30sp"
             android:textColor="@android:color/holo_blue_dark" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            app:srcCompat="@drawable/image_1"
-            android:layout_below="@+id/current_site"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/IMAGE" />
 
     </RelativeLayout>
 

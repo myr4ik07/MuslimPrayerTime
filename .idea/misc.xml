@@ -4,13 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jaros/AndroidStudioProjects/MuslimPrayerTime/app/src/main/res/layout/activity_main.xml" value="0.2617753623188406" />
+        <entry key="app/src/main/res/layout-large/activity_main.xml" value="0.5808580858085809" />
+        <entry key="app/src/main/res/layout-normal-v17/activity_main.xml" value="0.2884963768115942" />
+        <entry key="app/src/main/res/layout-normal/activity_main.xml" value="0.2884963768115942" />
+        <entry key="app/src/main/res/layout-small-v17/activity_main.xml" value="0.5986394557823129" />
+        <entry key="app/src/main/res/layout-small/activity_main.xml" value="0.2884963768115942" />
+        <entry key="app/src/main/res/layout-v17/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-xlarge-v17/activity_main.xml" value="0.21755464480874318" />
+        <entry key="app/src/main/res/layout-xlarge/activity_main.xml" value="0.21755464480874318" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.5808580858085809" />
+      </ProjectState>
+    </option>
   </component>
 </project>
