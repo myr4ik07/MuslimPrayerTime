@@ -475,7 +475,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             } else if (int_thisMonth == March) {
                 int_hour = new Integer(currentTime.substring(0, 2)) + 1;
-                if (current_day < 28) {
+                if (current_day <= 28) {
                     if (current_day >= int_lastSundayMonth) {
                         if ( int_hour < 10) {
                             return "0" + int_hour + currentTime.substring(2, 5);
