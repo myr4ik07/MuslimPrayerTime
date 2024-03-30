@@ -483,6 +483,15 @@ public class MainActivity extends AppCompatActivity {
                             return "" + int_hour + currentTime.substring(2, 5);
                         }
                     }
+                }else {
+                    if (current_day < int_lastSundayMonth) {
+                        int_hour = new Integer(currentTime.substring(0, 2)) - 1;
+                        if ( int_hour < 10) {
+                            return "0" + int_hour + currentTime.substring(2, 5);
+                        } else {
+                            return "" + int_hour + currentTime.substring(2, 5);
+                        }
+                    }
                 }
             }
         } catch (NumberFormatException e) {
